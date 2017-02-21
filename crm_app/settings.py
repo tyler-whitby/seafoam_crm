@@ -10,10 +10,24 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.10/ref/settings/
 """
 
-import os
 
+#REMOVED OS PATHS
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+import os
+import django.core.exceptions
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+#Handling key imports!
+def get_env_variables(var_name):
+	"""Get env var or return exception"""
+	try:
+		return(os.environ[var_name])
+	except KeyError:
+		error_ms = "Set the {} environment variable".format(var_name)
+		raise ImproperlyConfigured(error_msg)
+
+ENV_ROLE = get_env_variable('ENV_ROLE')
 
 
 # Quick-start development settings - unsuitable for production
@@ -23,7 +37,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = ')4jz%gkr_x#z)pwsy4+7o$mnpcbo*zo!^4l*hq-smu+&7uk3r7'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
+TEMPLATE_DEBUG = DEBUG
+if ENV_ROLE == 'development':
+	DEBUG = True
+	TEMPLATE_DEBUG = DEBUG
 
 ALLOWED_HOSTS = []
 
