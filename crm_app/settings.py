@@ -19,7 +19,7 @@ import django.core.exceptions
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 #Handling key imports!
-def get_env_variables(var_name):
+def get_env_variable(var_name):
 	"""Get env var or return exception"""
 	try:
 		return(os.environ[var_name])
@@ -34,7 +34,7 @@ ENV_ROLE = get_env_variable('ENV_ROLE')
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = ')4jz%gkr_x#z)pwsy4+7o$mnpcbo*zo!^4l*hq-smu+&7uk3r7'
+SECRET_KEY = get_env_variable('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
