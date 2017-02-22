@@ -2,9 +2,9 @@
 {% block title %}Login{% endblock %}
 
 {% block content %}
-    <div id="content-container" class="container p-none">
+    <div id="content-container" class="col-lg-4 col-centered container p-none">
         <form id="login-form" method="post"
-                action="{% url 'django.contrib.auth.views.login' %}">
+                action="{% url 'login' %}">
             {% csrf_token %}
             <table class="table">
                 <tr>

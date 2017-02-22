@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+{% load customer_tags %}
+{% customer_name as customer_name %}
 <head>
-    <title>{% block title %}  {% endblock title %} | {{ customer_name }} CRM Portal</title>
+    <title>{% block title %}  {% endblock title %} | {% customer_name %} CRM Portal</title>
     {% block head_meta %}
             {% block head_meta_charset %}
                 <meta http-equiv="Content-Type"
@@ -51,7 +53,7 @@
                             <li><a href=""
                                    class="p-r-none">Accounts</a></li>
                         {% else %}
-                            <li><a href="">Login</a></li>
+                            <li><a href={% url 'login' %}>Login</a></li>
                             <li><a href="" class="p-r-none">Sign Up</a></li>
                         {% endif %}
                     </ul>
@@ -67,8 +69,8 @@
     </div>
     {# The Footer #}
     <div class="footer">
-        <div class="container">
-            <p>Copyright 2016 Seafoam Data, Licesnsed by Blue Corp.</p>
+        <div class="col-sm-12 text-center navbar-text">
+            <p>Copyright 2016 Seafoam Data, Licesnsed by {{ customer_name }}</p>
         </div>
     </div>
 </body>
