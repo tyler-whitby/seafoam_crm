@@ -16,6 +16,8 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
+from django.contrib.auth.decorators import login_required
+
 from . import views
 
 
@@ -30,4 +32,8 @@ urlpatterns = [
     url(r'^logout/$',
         auth_views.logout, {'next_page': '/login/'}, name='logout'
         ),
+
+    #main page, after login
+    url(r'^main/$', login_required( views.mainView.as_view() ),name='main'),
+
 ]
