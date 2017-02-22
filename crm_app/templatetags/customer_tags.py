@@ -5,4 +5,4 @@ register = template.Library()
 
 @register.simple_tag
 def customer_name():
-    return CUSTOMER_NAME
+    return customer_vars['CUSTOMER_NAME']

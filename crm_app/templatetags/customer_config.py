@@ -1,3 +1,5 @@
 #Set all client variables here.
 
-CUSTOMER_NAME = "Blue Corp."
+customer_vars = {
+    'CUSTOMER_NAME' : "Blue Corp.",
+}

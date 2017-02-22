@@ -49,7 +49,7 @@
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
                         {% if user.is_authenticated %}
-                            <li><a href="">Logout</a></li>
+                            <li><a href="{% url 'logout' %}">Logout</a></li>
                             <li><a href=""
                                    class="p-r-none">Accounts</a></li>
                         {% else %}
@@ -70,7 +70,7 @@
     {# The Footer #}
     <div class="footer">
         <div class="col-sm-12 text-center navbar-text">
-            <p>Copyright 2016 Seafoam Data, Licesnsed by {{ customer_name }}</p>
+            <p>Copyright 2016 Seafoam Data, Licensed by {{ customer_name }}</p>
         </div>
     </div>
 </body>

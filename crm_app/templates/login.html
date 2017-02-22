@@ -2,7 +2,7 @@
 {% block title %}Login{% endblock %}
 
 {% block content %}
-    <div id="content-container" class="col-lg-4 col-centered container p-none">
+    <div id="content-container " class="col-lg-5 col-centered container p-none">
         <form id="login-form" method="post"
                 action="{% url 'login' %}">
             {% csrf_token %}
@@ -28,7 +28,7 @@
 
             <input type="submit" value="Login"
                    class="btn btn-primary pull-right" />
-            <input type="hidden" name="next" value="{{ next }}" />
+            <input type="hidden" name="next" value="/" />
 
         </form>
     </div>
