@@ -16,3 +16,4 @@ class mainView(TemplateView):
         context = super(mainView, self).get_context_data(**kwargs)
 
         return context
+
