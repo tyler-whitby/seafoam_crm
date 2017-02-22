@@ -22,7 +22,8 @@ from . import views
 
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
+    url(r'^admin/', admin.site.urls,name='admin'),
+
     url(r'^$', views.indexView.as_view(),name='index'),
 
     #Login-Logout
