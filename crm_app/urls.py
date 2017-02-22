@@ -21,5 +21,13 @@ from . import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-        url(r'^$', views.indexView.as_view(),name='index')
+    url(r'^$', views.indexView.as_view(),name='index'),
+
+    #Login-Logout
+    url(r'^login/$',
+        'django.contrib.auth.views.login', {'template_name': 'login.html'}
+        ),
+    url(r'^logout/$',
+        'django.contrib.auth.views.logout', {'next_page': '/login/'}
+        ),
 ]
