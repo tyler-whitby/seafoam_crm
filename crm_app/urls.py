@@ -23,7 +23,7 @@ from . import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls,name='admin'),
-
+    #Landing page
     url(r'^$', views.indexView.as_view(),name='index'),
 
     #Login-Logout
