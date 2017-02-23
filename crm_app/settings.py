@@ -16,6 +16,7 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 import os
 import django.core.exceptions
 
+
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 #Handling key imports!
@@ -24,8 +25,8 @@ def get_env_variable(var_name):
 	try:
 		return(os.environ[var_name])
 	except KeyError:
-		error_ms = "Set the {} environment variable".format(var_name)
-		raise ImproperlyConfigured(error_msg)
+		error_msg = "Set the {} environment variable".format(var_name)
+		raise django.core.exceptions.ImproperlyConfigured(error_msg)
 
 ENV_ROLE = get_env_variable('ENV_ROLE')
 
@@ -37,6 +38,7 @@ ENV_ROLE = get_env_variable('ENV_ROLE')
 SECRET_KEY = get_env_variable('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
+
 DEBUG = False
 #TEMPLATE_DEBUG = DEBUG
 if ENV_ROLE == 'development':
@@ -55,8 +57,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'crm_app'
+    'stronghold',
+    'crm_app',
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -66,6 +70,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'crm_app.custom_stronghold.SiteLoginRequiredMiddleware',
 ]
 
 ROOT_URLCONF = 'crm_app.urls'

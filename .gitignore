@@ -2,7 +2,7 @@
 
 *.sqlite*
 *.idea*
-
+.pycharmrc
 
 ##GITHUB
 # Byte-compiled / optimized / DLL files
