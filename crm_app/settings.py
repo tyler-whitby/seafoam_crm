@@ -70,6 +70,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    #Custom stronghold middleware, waiting on native 1.10 compatibility
     'crm_app.custom_stronghold.SiteLoginRequiredMiddleware',
 ]
 
