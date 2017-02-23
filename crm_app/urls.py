@@ -23,8 +23,7 @@ from . import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls,name='admin'),
-    #Landing page
-    url(r'^$', views.indexView.as_view(),name='index'),
+
 
     #Login-Logout
     url(r'^login/$', auth_views.login, {'template_name': 'login.html'},
@@ -35,6 +34,6 @@ urlpatterns = [
         ),
 
     #main page, after login
-    url(r'^main/$', login_required( views.mainView.as_view() ),name='main'),
+    url(r'^$', views.mainView.as_view(), name='main'),
 
 ]
